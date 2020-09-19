@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR01 Input</title>
+    <title>PR01 Display</title>
+    <% include ../../includes/header.ejs %>
 </head>
 <body>
-    <h1>We received your input!</h1>
-    <p>This is input 1: <%= input1 %></p>
-    <br>
-    <pr>This is input 2: <%= input2 %></p>
+    <% include ../../includes/nav.ejs %>
+
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1>We received your input!</h1>
+            <p>Input 1: <%= input1 %></p>
+            <br>
+            <p>Input 2: <%= input2 %></p>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,7 +1,24 @@
-<form action="/pr01/submit" method="POST">
-    Input 1: <input type="text" name="i1">
-    <br>
-    Input 2: <input type="text" name="i2">
-    <br>
-    <button type="submit">Submit Form</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR01 Input</title>
+    <% include ../../includes/header.ejs %>
+</head>
+<body>
+    <% include ../../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+        <div class="container">
+          <h1>Prove 01</h1>
+          <form action="/pr01/submit" method="POST">
+            Input 1: <input type="text" name="i1" style="color: black;">
+            <br>
+            Input 2: <input type="text" name="i2" style="color: black;">
+            <br>
+            <button type="submit" class="btn btn-default" style="margin-top: 5px; margin-left: 35px;">Submit Form</button>
+        </form>
+        </div>
+      </div>
+</body>
+</html>

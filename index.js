@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')))
    .use('/pr01', pr01Routes) // Prove Activities
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
-     res.render('pages/index', {title: 'Welcome to my CSE341 repo', path: '/'});
+     res.render('pages/index', {title: 'Welcome to Adam\'s CSE341 repo', path: '/'});
     })
    .use((req, res, next) => {
      // 404 page
