@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <% include ../../includes/header.ejs %>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/product_form.css" />
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+  <div class="jumbotron text-center">
+    <div class="grid">
+      <h1>Prove 02</h1>
+      <form action="/pr02/add-book" method="POST">
+        <input type="text" name="title" style="color: black;" placeholder="Book Title">
+        <br>
+        <input type="text" name="author" style="color: black;" placeholder="Author">
+        <br>
+        <input type="text" name="summary" style="color: black;" placeholder="Summary">
+        <br>
+        <input type="text" name="price" style="color: black;" placeholder="Price">
+        <br>
+        <button type="submit" class="btn btn-default" style="margin-top: 5px; margin-left: 35px;">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="product_form">
+    <% if (books.length > 0) { %>
+    <h1 class="title_card">Available Books:</h1>
+
+    <% for (let i = 0; i < books.length; i++) { %>
+    <div class="book_card">
+      <h2><%= books[i].title %></h2>
+      <h3>By: <%= books[i].author %></h3>
+      <p>"<%= books[i].summary %>"</p>
+      <p>$<%= books[i].price %></p>
+    </div>
+    <% } %>
+  </div>
+  <% } else { %>
+  <h1 class="title_card">No books found.</h1>
+  <% } %>
+  </div>
+</body>
+
+</html>

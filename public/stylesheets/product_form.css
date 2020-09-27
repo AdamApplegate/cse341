@@ -1,0 +1,29 @@
+.product_form {
+    display: grid;
+    align-content: space-between;
+    margin: auto;
+    padding: 10px;
+}
+
+.title_card {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 40px;
+    background-color: #963d96;
+    border: 3px solid #312f21;
+    border-radius: 10px;
+    padding: 5px;
+    width: 30%
+}
+
+.book_card {
+    font-family: sans-serif;
+    background-color: #ebdf9b;
+    border: 3px solid #312f21;
+    border-radius: 10px;
+    padding: 5px;
+    width: 30%;
+    margin: auto;
+    margin-bottom: 15px;
+    text-align: center;
+}

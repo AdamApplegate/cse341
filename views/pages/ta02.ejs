@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <% include ../includes/header.ejs %>
 </head>
 
 <body>
   <% include ../includes/nav.ejs %>
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1><%= title %></h1>
-    <p>This is the placeholder for Team Activity 02</p>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= title %></h1>
+      <form action="/ta02/addUser" method="POST">
+        <input style="color: black;" type="text" name="usernameAdd">
+        <button type="submit">Add User</button>
+      </form>
+    </div>
   </div>
-</div>
-<div class="container">
-  
-</div>
 
+  <div class="container">
+    <% if (usernames.length > 0) { %>
+      <h1>Available Books:</h1>
+    <ul>
+      <% for (let user in usernames) { %>
+      <li><%= user %></li>
+    </ul>
+    <% } %>
+     <% } else { %>
+      <h1>No usernames available</h1>
+    <% } %>
+
+    <form method="POST" action='/ta02/removeUser'>
+      <input style="color: black;" type="text" name="usernameRemove">
+      <button type="submit">Remove User</button>
+    </form>
+    <% if (isNotFound) { %>
+      <p style="color: red;">Username was not found for removal.</p>
+      <% } %>
+  </div>
 
 </body>
+
 </html>

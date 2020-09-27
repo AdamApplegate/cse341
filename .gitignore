@@ -10,3 +10,9 @@ npm-debug.log
 # Docker
 Dockerfile
 docker-compose.yml
+
+#VS Code
+cse341-project-workspace.code-workspace
+
+#Tutorial Code
+Academind Tutorials

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/',(req, res, next) => {
-    res.render('pages/pr01/form', { 
+    res.render('pages/pr01/index', { 
         title: 'Prove Activity 1', 
         path: '/pr01', // For pug, EJS 
         activeTA03: true, // For HBS
