@@ -6,7 +6,7 @@ const router = express.Router();
 const usernames = [];
 
 router.get('/', (req, res, next) => {
-    res.render('pages/ta02', {
+    res.render('pages/team/ta02', {
         path: '/ta02',
         title: 'Team Activity 02',
         usernames: usernames,
@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 router.post('/addUser', (req, res, next) => {
     usernames.forEach(item => {
         if (item === req.body.usernameAdd) {
-            res.render('pages/ta02', {
+            res.render('pages/team/ta02', {
                 title: 'Team Activity 02',
                 path: '/ta02',
                 usernames: usernames,
@@ -29,7 +29,7 @@ router.post('/addUser', (req, res, next) => {
         else { 
             usernames.push(req.body.usernameAdd);
             
-            res.render('pages/ta02', {
+            res.render('pages/team/ta02', {
                 title: 'Team Activity 02',
                 path: '/ta02',
                 usernames: usernames,
@@ -47,7 +47,7 @@ router.post('/removeUser', (req, res, next) => {
             let position = usernames.findIndex((item) => { item === req.body.usernameRemove });
             usernames.splice(position, 1);
 
-            res.render('pages/ta02', {
+            res.render('pages/team/ta02', {
                 title: 'Team Activity 02',
                 path: '/ta02',
                 usernames: usernames,
@@ -56,7 +56,7 @@ router.post('/removeUser', (req, res, next) => {
             });
         } 
         else {
-            res.render('pages/ta02', {
+            res.render('pages/team/ta02', {
                 title: 'Team Activity 02',
                 path: '/ta02',
                 usernames: usernames,

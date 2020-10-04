@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= title %></h1>
+      <h2>Refresh the page to view available items</h2>
+      <form action="/ta03/search-item" method="POST">
+        Search: <input type="text" name="search" id="itemSearch" style="color: black;">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <% if (searched) { %>
+    <% if (searchProducts.length > 0) { %>
+    <% searchProducts.forEach(item => { %>
+    <div class="row">
+      <div class="col-m">
+        <div class="jumbotron jumbotron-fluid itemContainer">
+          <div class="container">
+            <h1 class="display-4"><%= item.name %></h1>
+            <img src="<%= item.imageUrl %>" style='max-width: 150px' alt="<%= item.name %>">
+            <p> <%= item.description %> </p>
+            <p><%= item.price %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  <% } else { %>
+    <h1>No results found.</h1>
+  <% } %>
+  <% } else { %>
+  <% if (products.length > 0) {  %>
+  <% products.forEach(item => { %>
+  <div class="row">
+    <div class="col-m">
+      <div class="jumbotron jumbotron-fluid itemContainer">
+        <div class="container">
+          <h1 class="display-4"><%= item.name %></h1>
+          <img src="<%= item.imageUrl %>" style='max-width: 150px' alt="<%= item.name %>">
+          <p> <%= item.description %> </p>
+          <p><%= item.price %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <% }) %>
+  <% } else { %>
+  <h1>No products found</h1>
+  <% } %>
+  <% } %>
+  </div>
+</body>
+
+</html>

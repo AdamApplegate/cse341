@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% include ../../includes/header.ejs %>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/product_form.css" />
+</head>
+
+<body>
+  <style>
+    body {
+      margin: auto;
+    }
+
+  </style>
+  <% include ../../includes/nav.ejs %>
+  <div class="jumbotron text-center">
+    <div class="grid">
+      <h1>Prove 03</h1>
+    </div>
+  </div>
+
+  <div class="product_form">
+    <% if (products.length > 0) {  %>
+      <h1 style="margin: auto; margin-bottom: 30px; color: green;">Products available:</h1>
+      <% products.forEach(item => { %>
+      <div style="margin: auto; margin-bottom: 20px; border-radius: 20px; border: 2px solid gray; width: 30%; text-align: center;">
+        <div>
+          <div>
+            <di>
+              <h1><%= item.name %></h1>
+              <h3>Sold by: <%= item.seller %></h3>
+              <img src="<%= item.imageUrl %>" style='max-width: 150px' alt="<%= item.name %>">
+              <p> <%= item.description %> </p>
+              <p>$<%= item.price %></p>
+              <p style="color: red"><%= item.quantity %> available! %></p>
+              <hr>
+              <!-- <p>
+                Description: <% if (item.descripion === '') { %>
+                  No description available.
+                  <% } else { %>
+                    <%= item.description %> 
+                    <% } %>
+              </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      </div>
+      <% }) %>
+      <% } else { %>
+      <h1>No products found</h1>
+      <% } %>
+      </div>
+</body>
+
+</html>
