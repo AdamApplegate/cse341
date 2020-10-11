@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <% include ../includes/header.ejs %>
 </head>
 
 <body>
   <% include ../includes/nav.ejs %>
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1><%= title %></h1>
-    <p>Here you will find my CSE341 assignments for the semester.  Look for them under the dropdown menus at the top of the page.</p>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= pageTitle %></h1>
+      <p>Here you will find my CSE341 assignments for the semester. Look for them under the dropdown menus at the top of
+        the page.</p>
+    </div>
+      <button onclick="document.location='team/'" class="button button1">Team Activities</button>
+      <button onclick="document.location='prove/'" class="button button2">Prove Assignments</button>
+      <button onclick="document.location='commerce/'" class="button button3">eCommerce App</button>
   </div>
-</div>
 
 </body>
+
 </html>

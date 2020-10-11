@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const Product = require('../../models/product.js');
+const TeamProduct = require('../../models/team/product.js');
 
 let products = [];
 
 
 const p = path.join(
     path.dirname(require.main.filename),
-    'data',
+    'data/prove',
     'products.json'
 );
 
@@ -22,7 +22,7 @@ exports.getPR03 = (req, res, next) => {
         }
     });
     
-    res.render('pages/pr03/index.ejs', {
+    res.render('pages/provePages/pr03/index.ejs', {
         path: '/pr03',
         title: 'PR03',
         products: products

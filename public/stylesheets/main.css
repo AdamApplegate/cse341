@@ -41,3 +41,27 @@
   width: 5rem;
   height: 5rem;
 }
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline - block;
+  font-size: 16px;
+}
+
+.button1 {
+  background-color: #4CAF50;
+}
+
+.button2 {
+  background-color: #e6c612;;
+
+}
+
+.button3 {
+  background-color: #f44336;
+
+}

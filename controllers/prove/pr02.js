@@ -1,7 +1,7 @@
 const books = [];
 
 exports.getPr02 = (req, res, next) => {
-    res.render('pages/pr02/index.ejs', {
+    res.render('pages/provePages/pr02/index.ejs', {
         path: '/pr02',
         title: 'PR02',
         books

@@ -1,0 +1,53 @@
+<div class="backdrop"></div>
+<header class="main-header">
+    <button id="side-menu-toggle">Menu</button>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a class="<%= path === '/commerce/shop' ? 'active' : '' %>" href="/commerce/shop">Shop</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/commerce/shop/products' ? 'active' : '' %>" href="/commerce/shop/products">Products</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/commerce/shop/cart' ? 'active' : '' %>" href="/commerce/shop/cart">Cart</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/commerce/shop/orders' ? 'active' : '' %>" href="/commerce/shop/orders">Orders</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/commerce/admin/add-product' ? 'active' : '' %>" href="/commerce/admin/add-product">Add Product
+                </a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/commerce/admin/products' ? 'active' : '' %>" href="/commerce/admin/products">Admin Products
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<nav class="mobile-nav">
+        <ul class="mobile-nav__item-list">
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/commerce/shop' ? 'active' : '' %>" href="/commerce/shop">Shop</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/commerce/shop/products' ? 'active' : '' %>" href="/commerce/shop/products">Products</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/commerce/shop/cart' ? 'active' : '' %>" href="/commerce/shop/cart">Cart</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/commerce/shop/orders' ? 'active' : '' %>" href="/commerce/shop/orders">Orders</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/commerce/admin/add-product' ? 'active' : '' %>" href="/commerce/admin/add-product">Add Product
+                    </a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/commerce/admin/products' ? 'active' : '' %>" href="/commerce/admin/products">Admin Products
+                    </a>
+                </li>
+            </ul>
+</nav>

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { createBrotliCompress } = require('zlib');
 
-const Product = require('../../models/product.js');
+const TeamProduct = require('../../models/team/product.js');
 const { search } = require('../../util/path.js');
 
 let products = [];
@@ -26,7 +26,7 @@ exports.getTA03 = (req, res, next) => {
         }
     });
 
-    res.render('pages/team/ta03', {
+    res.render('pages/teamPages/ta03', {
         title: 'Team Activity 03',
         path: '/ta03',
         products: products,

@@ -30,7 +30,7 @@
        "id":"microsoft02",
        "name":"Xbox Series S",
        "description":"",
-       "imageUrl":"https://compass-ssl.xbox.com/assets/2c/5e/2c5e5dce-0347-4bc3-85bd-50063ff70c35.jpg?n=X1S-2019_Sharing_X1S_200x200.jpg",
+       "imageUrl":"https://cdn.mos.cms.futurecdn.net/NmWUwV27zsU5cgNEhknSPA.jpg",
        "price":"299",
        "seller":"Microsoft",
        "quantity":"1"
@@ -48,7 +48,7 @@
        "id":"nintendo02",
        "name":"Nintendo Switch Lite",
        "description":"",
-       "imageUrl":"https://www.nintendo.com/content/dam/noa/en_US/images/switch/compare/lite-dimensions.jpg",
+       "imageUrl":"https://stockx.imgix.net/products/collectibles/Nintendo-Switch-Lite-Grey.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1590068904",
        "price":"199",
        "seller":"Nintendo",
        "quantity":"1"
