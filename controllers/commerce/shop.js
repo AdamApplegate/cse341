@@ -1,6 +1,5 @@
 const Product = require('../../models/commerce/product');
 const Order = require('../../models/commerce/order');
-const User = require('../../models/commerce/user');
 
 exports.getProducts = (req, res, next) => {
   Product.find()
@@ -8,7 +7,7 @@ exports.getProducts = (req, res, next) => {
       res.render('pages/commercePages/shop/product-list', {
         prods: products,
         pageTitle: 'All Products',
-        path: '/products'
+        path: '/commerce/shop/products'
       });
     })
     .catch(err => {
@@ -17,13 +16,14 @@ exports.getProducts = (req, res, next) => {
 };
 
 exports.getProduct = (req, res, next) => {
+  console.log('Getting product details');
   const prodId = req.params.productId;
   Product.findById(prodId)
     .then(product => {
       res.render('pages/commercePages/shop/product-detail', {
         product: product,
         pageTitle: product.title,
-        path: '/products'
+        path: '/commerce/shop/products'
       });
     })
     .catch(err => console.log(err));
@@ -35,7 +35,7 @@ exports.getIndex = (req, res, next) => {
       res.render('pages/commercePages/shop/index', {
         prods: products,
         pageTitle: 'Shop',
-        path: '/shop'
+        path: '/commerce/shop'
       });
     })
     .catch(err => {
@@ -66,7 +66,7 @@ exports.postCart = (req, res, next) => {
     })
     .then(result => {
       console.log(result);
-      res.redirect('/cart');
+      res.redirect('/commerce/shop/cart');
     });
 };
 
@@ -75,7 +75,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
   req.user
     .removeFromCart(prodId)
     .then(result => {
-      res.redirect('/cart');
+      res.redirect('/commerce/shop/cart');
     })
     .catch(err => console.log(err));
 };
@@ -103,7 +103,7 @@ exports.postOrder = (req, res, next) => {
       return req.user.clearCart();
     })
     .then(() => {
-      res.redirect('pages/commercePages/orders');
+      res.redirect('/commerce/shop/orders');
     })
     .catch(err => console.log(err));
 };
@@ -112,7 +112,7 @@ exports.getOrders = (req, res, next) => {
   Order.find({'user.userId': req.user._id })
     .then(orders => {
       res.render('pages/commercePages/shop/orders', {
-        path: '/orders',
+        path: '/commerce/shop/orders',
         pageTitle: 'Your Orders',
         orders: orders
       });

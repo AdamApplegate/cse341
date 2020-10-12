@@ -1,9 +1,9 @@
-<%- include('../../../includes/head.ejs') %>
+<%- include('../../../includes/commerce/head.ejs') %>
     <link rel="stylesheet" href="/stylesheets/commerce/cart.css">
     </head>
 
     <body>
-        <%- include('../../../includes/navigation.ejs') %>
+        <%- include('../../../includes/commerce/navigation.ejs') %>
         <main>
             <% if (products.length > 0) { %>
                 <ul class="cart__item-list">
@@ -11,7 +11,7 @@
                         <li class="cart__item">
                             <h1><%= p.productId.title %></h1>
                             <h2>Quantity: <%= p.quantity %></h2>
-                            <form action="/cart-delete-item" method="POST">
+                            <form action="/commerce/shop/cart-delete-item" method="POST">
                                 <input type="hidden" value="<%= p.productId._id %>" name="productId">
                                 <button class="btn danger" type="submit">Delete</button>
                             </form>
@@ -20,7 +20,7 @@
                 </ul>
                 <hr>
                 <div class="centered">
-                    <form action="/create-order" method="POST">
+                    <form action="/commerce/shop/create-order" method="POST">
                         <button type="submit" class="btn">Order Now!</button>
                     </form>
                 </div>
@@ -29,4 +29,4 @@
                 <h1>No Products in Cart!</h1>
             <% } %>
         </main>
-        <%- include('../../../includes/end.ejs') %>
+        <%- include('../../../includes/commerce/end.ejs') %>

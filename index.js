@@ -33,10 +33,20 @@ const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://node_js:root@clust
 
 
 app.use(express.static(path.join(__dirname, 'public')))
-   .set('views', path.join(__dirname, 'views'))
-   .set('view engine', 'ejs')
-   .use(bodyParser({extended: false})) // For parsing the body of a POST
-   .use('/', routes)
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .use(bodyParser.urlencoded({ extended: false })) // For parsing the body of a POST
+  .use((req, res, next) => {
+    User.findById('5f826ff7ffdf744444732a59')
+      .then(user => {
+        req.user = user;
+        next();
+      })
+      .catch(err => console.log(err));
+  })
+  .use('/', routes)
+
+
 
 mongoose
   .connect(
@@ -61,4 +71,4 @@ mongoose
   .catch(err => {
     console.log(err);
   });
-                        
+
