@@ -65,7 +65,7 @@ exports.postCart = (req, res, next) => {
       return req.user.addToCart(product);
     })
     .then(result => {
-      console.log(result);
+      // console.log(result);
       res.redirect('/commerce/shop/cart');
     });
 };
@@ -92,9 +92,10 @@ exports.postOrder = (req, res, next) => {
       const order = new Order({
         products: products,
         user: {
-          name: req.user.name,
+          email: req.user.email,
           userId: req.user
-        }
+        },
+        products: products
       });
 
       return order.save();

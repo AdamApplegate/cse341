@@ -6,12 +6,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+const csrf = require('csurf');
+const flash = require('connect-flash');
 
 //My packages
 const routes = require('./routes');
 const User = require('./models/commerce/user');
 
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
+
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://node_js:root@cluster0.hnqky.mongodb.net/shop?retryWrites=true&w=majority";
 
 const app = express();
 
@@ -21,6 +27,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+//Create options for mongoose
 const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -29,46 +36,72 @@ const options = {
   family: 4
 };
 
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://node_js:root@cluster0.hnqky.mongodb.net/shop?retryWrites=true&w=majority";
+const store = new MongoDBStore({
+  uri: MONGODB_URL,
+  collection: 'sessions'
+});
 
+const csrfProtection = csrf();
 
-app.use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .use(bodyParser.urlencoded({ extended: false })) // For parsing the body of a POST
-  .use((req, res, next) => {
-    User.findById('5f826ff7ffdf744444732a59')
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: false })); // For parsing the body of a POST
+
+app.use(
+    session({
+      secret: 'my secret',
+      resave: false,
+      saveUninitialized: false,
+      store: store
+    })
+  );
+
+app.use(csrfProtection);
+app.use(flash());
+
+app.use((req, res, next) => {
+    if (!req.session.user) {
+      return next();
+    }
+    User.findById(req.session.user._id)
       .then(user => {
         req.user = user;
         next();
       })
       .catch(err => console.log(err));
-  })
-  .use('/', routes)
+  });
 
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
 
+//Direct requests through the route files
+app.use('/', routes);
 
+//Listen with mongoose
 mongoose
   .connect(
     MONGODB_URL, options
   )
   .then(result => {
-    User.findOne().then(user => {
-      if (!user) {
-        const user = new User({
-          name: 'Adam',
-          email: 'adam@test.com',
-          cart: {
-            items: []
-          }
-        });
-        user.save();
-      }
-    });
-
     app.listen(PORT);
   })
   .catch(err => {
     console.log(err);
   });
 
+  // User.findOne().then(user => {
+    //   if (!user) {
+    //     const user = new User({
+    //       name: 'Adam',
+    //       email: 'adam@test.com',
+    //       cart: {
+    //         items: []
+    //       }
+    //     });
+    //     user.save();
+    //   }
+    // });

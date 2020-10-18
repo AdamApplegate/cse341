@@ -4,11 +4,15 @@
     <nav class="main-header__nav">
         <ul class="main-header__item-list">
             <li class="main-header__item">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">CSE 341 Home</a>
+            </li>
+            <li class="main-header__item">
                 <a class="<%= path === '/commerce/shop' ? 'active' : '' %>" href="/commerce/shop">Shop</a>
             </li>
             <li class="main-header__item">
                 <a class="<%= path === '/commerce/shop/products' ? 'active' : '' %>" href="/commerce/shop/products">Products</a>
             </li>
+            <% if (isAuthenticated) { %>
             <li class="main-header__item">
                 <a class="<%= path === '/commerce/shop/cart' ? 'active' : '' %>" href="/commerce/shop/cart">Cart</a>
             </li>
@@ -23,6 +27,24 @@
                 <a class="<%= path === '/commerce/admin/products' ? 'active' : '' %>" href="/commerce/admin/products">Admin Products
                 </a>
             </li>
+        <% } %>
+        </ul>
+        <ul class="main-header__item-list">
+            <% if (!isAuthenticated) { %>
+                <li class="main-header__item">
+                    <a class="<%= path === '/commerce/login' ? 'active' : '' %>" href="/commerce/login">Login</a>
+                </li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/commerce/signup' ? 'active' : '' %>" href="/commerce/signup">Signup</a>
+                </li>
+            <% } else { %>
+                <li class="main-header__item">
+                    <form action="/commerce/logout" method="post">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            <% } %>
         </ul>
     </nav>
 </header>

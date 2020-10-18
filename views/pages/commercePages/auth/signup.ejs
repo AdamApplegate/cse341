@@ -1,0 +1,30 @@
+<%- include('../../../includes/commerce/head.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/commerce/forms.css">
+    <link rel="stylesheet" href="/stylesheets/commerce/auth.css">
+</head>
+
+<body>
+   <%- include('../../../includes/commerce/navigation.ejs') %>
+
+    <main>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="login-form" action="/commerce/signup" method="POST">
+            <div class="form-control">
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="form-control">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword">
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="btn" type="submit">Signup</button>
+        </form>
+    </main>
+<%- include('../../../includes/commerce/end.ejs') %>

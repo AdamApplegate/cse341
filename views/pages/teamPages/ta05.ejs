@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+  <div class="jumbotron text-center" style=" background-color: blue; <%= style ? 'background-color: green' : 'background-color: blue' %>">
+    <div class="container">
+      <h1><%= title %></h1>
+      <h2>Click the button to change the style of the page!</h2>
+      <form action="/team/ta05/change-style" method="POST">
+        <button type="submit" class="btn btn-primary">Change Style</button>
+      </form>
+      <h2>Counter: <%= counter %></h2>
+      <form action="/team/ta05/increment" method="POST">
+        <button type="submit" class="btn btn-primary">Increment</button>
+      </form>
+      <form action="/team/ta05/decrement" method="POST">
+        <button type="submit" class="btn btn-primary">Decrement</button>
+      </form>
+      <form action="/team/ta05/reset" method="POST">
+        <button type="submit" class="btn btn-primary">Reset</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+  </div>
+</body>
+
+</html>

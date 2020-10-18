@@ -1,5 +1,6 @@
 const Product = require('../../models/commerce/product');
 
+
 exports.getAddProduct = (req, res, next) => {
   res.render('pages/commercePages/admin/edit-product', {
     pageTitle: 'Add Product',
