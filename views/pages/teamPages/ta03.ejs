@@ -13,6 +13,7 @@
       <h2>Refresh the page to view available items</h2>
       <form action="/ta03/search-item" method="POST">
         Search: <input type="text" name="search" id="itemSearch" style="color: black;">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
     </div>

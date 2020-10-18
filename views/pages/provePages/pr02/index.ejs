@@ -14,7 +14,8 @@
   <div class="jumbotron text-center">
     <div class="grid">
       <h1>Prove 02</h1>
-      <form action="/pr02/add-book" method="POST">
+      <form action="/prove/pr02/add-book" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <input type="text" name="title" style="color: black;" placeholder="Book Title">
         <br>
         <input type="text" name="author" style="color: black;" placeholder="Author">

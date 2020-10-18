@@ -11,7 +11,8 @@
     <div class="jumbotron text-center">
         <div class="container">
           <h1>Prove 01</h1>
-          <form action="/pr01/submit" method="POST">
+          <form action="/prove/pr01/submit" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             Input 1: <input type="text" name="i1" style="color: black;">
             <br>
             Input 2: <input type="text" name="i2" style="color: black;">

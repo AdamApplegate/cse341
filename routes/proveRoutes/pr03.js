@@ -9,6 +9,4 @@ const router = express.Router();
 
 router.get('/', pr03Controller.getPR03);
 
-router.post('/', pr03Controller.postPR03);
-
 module.exports = router;

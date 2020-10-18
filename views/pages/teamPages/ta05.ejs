@@ -12,18 +12,34 @@
       <h1><%= title %></h1>
       <h2>Click the button to change the style of the page!</h2>
       <form action="/team/ta05/change-style" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button type="submit" class="btn btn-primary">Change Style</button>
       </form>
+
+      <hr>
+
       <h2>Counter: <%= counter %></h2>
       <form action="/team/ta05/increment" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button type="submit" class="btn btn-primary">Increment</button>
       </form>
+
+      <br>
+
       <form action="/team/ta05/decrement" method="POST">
         <button type="submit" class="btn btn-primary">Decrement</button>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
       </form>
+
+      <br>
+
       <form action="/team/ta05/reset" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button type="submit" class="btn btn-primary">Reset</button>
       </form>
+
+      <br>
+
     </div>
   </div>
   <div class="container">

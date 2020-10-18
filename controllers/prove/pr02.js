@@ -2,7 +2,7 @@ const books = [];
 
 exports.getPr02 = (req, res, next) => {
     res.render('pages/provePages/pr02/index.ejs', {
-        path: '/pr02',
+        path: '/prove/pr02',
         title: 'PR02',
         books
     });
@@ -21,5 +21,5 @@ exports.postPr02 = (req, res, next) => {
     books.push(book);
 
     //Redirect to the page for updated array
-    res.redirect('/pr02');
+    res.redirect('/prove/pr02');
 };

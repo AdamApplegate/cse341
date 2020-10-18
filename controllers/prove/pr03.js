@@ -28,7 +28,3 @@ exports.getPR03 = (req, res, next) => {
         products: products
     });
 };
-
-exports.postPR03 = (req, res, next) => {
-
-};
