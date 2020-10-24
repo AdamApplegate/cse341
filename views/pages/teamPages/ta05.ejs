@@ -18,10 +18,10 @@
 
       <hr>
 
-      <h2>Counter: <%= counter %></h2>
+    <h2>Counter: <% if (counter == null) { %>0<% } else { %><%= counter %><% } %></h2>
       <form action="/team/ta05/increment" method="POST">
-        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button type="submit" class="btn btn-primary">Increment</button>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
       </form>
 
       <br>
@@ -34,8 +34,8 @@
       <br>
 
       <form action="/team/ta05/reset" method="POST">
-        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button type="submit" class="btn btn-primary">Reset</button>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
       </form>
 
       <br>

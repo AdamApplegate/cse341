@@ -1,12 +1,12 @@
 
 exports.getTA05 = (req, res, next) => {
+    console.log('getTA05() - ' + req.session.counter);
     res.render('pages/teamPages/ta05', {
         title: 'Team Activity 05',
         path: '/team/ta05',
         style: req.session.style,
-        counter : req.session.counter
+        counter: req.session.counter
     })
-    req.session.counter = 0;
     req.session.style = false;
 };
 
@@ -16,11 +16,13 @@ exports.postTA05 = (req, res) => {
 };
 
 exports.incrementCounter = (req, res) => {
+    console.log('incrementCounter() - ' + req.session.counter);
     req.session.counter++;
     res.redirect('/team/ta05');
 };
 
 exports.decrementCounter = (req, res) => {
+    console.log('decrementCounter() - ' + req.session.counter);
     req.session.counter--;
     res.redirect('/team/ta05');
 };

@@ -92,16 +92,3 @@ mongoose
   .catch(err => {
     console.log(err);
   });
-
-  // User.findOne().then(user => {
-    //   if (!user) {
-    //     const user = new User({
-    //       name: 'Adam',
-    //       email: 'adam@test.com',
-    //       cart: {
-    //         items: []
-    //       }
-    //     });
-    //     user.save();
-    //   }
-    // });

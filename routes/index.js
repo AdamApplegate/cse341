@@ -10,8 +10,9 @@ routes
     .use('/prove', proveRoutes)
     .use('/commerce', commerceRoutes)
     .get('/', (req, res, next) => {
-        res.render('pages/index', {pageTitle: 'Welcome to Adam Applegate\'s CSE341 repo', path: '/'});
-       })
+        res.render('pages/index', { pageTitle: 'Welcome to Adam Applegate\'s CSE341 repo', path: '/' });
+    })
+    // .use('/500', errorController.get500)
     .use(errorController.get404)
 
 module.exports = routes;
