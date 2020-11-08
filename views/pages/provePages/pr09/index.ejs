@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../../includes/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/fonts/pokemon.css" />
+</head>
+
+<body>
+    <% include ../../../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1>Prove 09</h1>
+        </div>
+    </div>
+
+    <div>
+        <h1>Pokemon #<%= currentPage %>-<%= currentPage * 10 %></h1>
+        <section class="pagination">
+
+            <% for (p in pokemon) { %>
+                <div>
+                    <h2><%= pokemon[p].name %></h2>
+                </div>
+            <% } %>
+        </section>
+
+        <section class="pagination">
+            <% if (currentPage != 1 && previousPage != 1) { %>
+            <a href="/prove/pr09/?page=1">1</a>
+            <% } %>
+
+            <% if (hasPreviousPage) { %>
+            <a href="/prove/pr09/?=<%= previousPage %>"><%= previousPage %></a>
+            <% } %>
+
+            <a href="/prove/pr09/?=<%= currentPage %>" class="active"><%= currentPage %></a>
+
+            <% if (hasNextPage) { %>
+            <a href="/prove/pr09/?=<%= nextPage %>"><%= nextPage %></a>
+            <% } %>
+
+            <% if (currentPage != lastPage || hasNextPage != lastPage) { %>
+            <a href="">...</a>
+            <a href="/prove/pr09/?=<%= lastPage %>"><%= lastPage %></a>
+            <% } %>
+
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../../includes/header.ejs %>
+</head>
+
+<body>
+    <% include ../../../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1>Prove 08</h1>
+        </div>
+    </div>
+
+    <div style="margin: auto;">
+        <h1 style="margin: auto;">Items #<%= currentPage * 10 - 9 %>-<%= currentPage * 10 %></h1>
+        <section class="pagination">
+
+            <% for (i = currentPage * 10 - 10; i < currentPage * 10; i++) { %>
+              <div class="row">
+                <div class="col-m">
+                  <div class="container" style="border: 2px solid blue; border-radius: 10px; margin: 10px; background: powderblue;">
+                    <div class="container">
+                      <h1 class="display-4">#<%= i + 1 %>: <%= products[i].name %></h1>
+                      <img src="<%= products[i].imageUrl %>" style='max-width: 150px'>
+                      <p> <%= products[i].description %> </p>
+                      <p><%= products[i].price %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% } %>
+        </section>
+
+        <section class="pagination">
+            <% if (currentPage != 1 && previousPage != 1) { %>
+            <a href="/prove/pr08/?page=1">1</a>
+            <% } %>
+
+            <% if (currentPage != 1 && previousPage != 1 && previousPage != 2) { %>
+            <a href="">...</a>
+            <% } %>
+
+            <% if (hasPreviousPage) { %>
+            <a href="/prove/pr08/?page=<%= previousPage %>"><%= previousPage %></a>
+            <% } %>
+
+            <a href="/prove/pr08/?page=<%= currentPage %>" class="active"><%= currentPage %></a>
+
+            <% if (hasNextPage) { %>
+            <a href="/prove/pr08/?page=<%= nextPage %>"><%= nextPage %></a>
+            <% } %>
+
+            <% if (currentPage != lastPage || hasNextPage != lastPage) { %>
+            <a href="">...</a>
+            <a href="/prove/pr08/?page=<%= lastPage %>"><%= lastPage %></a>
+            <% } %>
+
+        </section>
+    </div>
+</body>
+
+</html>
