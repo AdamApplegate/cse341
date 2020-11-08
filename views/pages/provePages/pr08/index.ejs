@@ -13,8 +13,8 @@
         </div>
     </div>
 
-    <div style="margin: auto;">
-        <h1 style="margin: auto;">Items #<%= currentPage * 10 - 9 %>-<%= currentPage * 10 %></h1>
+    <div style="margin: auto; text-align: center;">
+        <h1 style="font-weight: bold; color: #3a3ac4;">Items #<%= currentPage * 10 - 9 %>-<%= currentPage * 10 %></h1>
         <section class="pagination">
 
             <% for (i = currentPage * 10 - 10; i < currentPage * 10; i++) { %>
@@ -32,6 +32,8 @@
               </div>
             <% } %>
         </section>
+
+        <hr>
 
         <section class="pagination">
             <% if (currentPage != 1 && previousPage != 1) { %>
@@ -52,7 +54,7 @@
             <a href="/prove/pr08/?page=<%= nextPage %>"><%= nextPage %></a>
             <% } %>
 
-            <% if (currentPage != lastPage || hasNextPage != lastPage) { %>
+            <% if (currentPage != lastPage && nextPage != lastPage) { %>
             <a href="">...</a>
             <a href="/prove/pr08/?page=<%= lastPage %>"><%= lastPage %></a>
             <% } %>
