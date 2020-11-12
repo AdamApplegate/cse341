@@ -26,8 +26,8 @@ exports.getPR08 = (req, res, next) => {
     totalItems = products.length;
 
     res.render('pages/provePages/pr08/index', {
-        pageTitle: this.getPR09,
-        path: '/pr09',
+        pageTitle: this.getPR08,
+        path: '/pr08',
         products: products,
         currentPage: page,
         hasNextPage: ITEMS_PER_PAGE * page < totalItems,
@@ -36,12 +36,4 @@ exports.getPR08 = (req, res, next) => {
         previousPage: page - 1,
         lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE)
     });
-
-    // console.log('');
-    // console.log('Current page: ' + page);
-    // console.log('# of pages: ' + totalItems / 10);
-    // console.log('# of products: ' + totalItems);
-    // console.log('Has next page: ' + (ITEMS_PER_PAGE * page));
-    // console.log('Last page: ' + Math.ceil(totalItems / ITEMS_PER_PAGE));
-    // console.log('');
 };

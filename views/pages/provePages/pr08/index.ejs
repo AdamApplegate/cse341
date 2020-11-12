@@ -15,7 +15,7 @@
 
     <div style="margin: auto; text-align: center;">
         <h1 style="font-weight: bold; color: #3a3ac4;">Items #<%= currentPage * 10 - 9 %>-<%= currentPage * 10 %></h1>
-        <section class="pagination">
+        <section class="pagination"></section>
 
             <% for (i = currentPage * 10 - 10; i < currentPage * 10; i++) { %>
               <div class="row">
@@ -60,7 +60,6 @@
             <% } %>
 
         </section>
-    </div>
 </body>
 
 </html>

@@ -15,7 +15,7 @@ const flash = require('connect-flash');
 const routes = require('./routes');
 const User = require('./models/commerce/user');
 
-const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
+const PORT = process.env.PORT || 3000 // So we can run on heroku || (OR) localhost:5000
 
 const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://node_js:root@cluster0.hnqky.mongodb.net/shop?retryWrites=true&w=majority";
 
@@ -47,6 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false })); // For parsing the body of a POST
+app.use(bodyParser.json());
 
 app.use(
     session({

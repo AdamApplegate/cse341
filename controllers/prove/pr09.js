@@ -1,14 +1,15 @@
+const { urlencoded } = require('body-parser');
 const fetch = require('node-fetch');
 
 const ITEMS_PER_PAGE = 10;
-const URL = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=10';
 
-const pokemon = [];
+let pokemon = [];
 
 exports.getPR09 = (req, res, next) => {
-    pokemon.length = 0;
     const page = +req.query.page || 1;
-    let totalItems;
+    let totalItems = 1050;
+
+    let URL = 'https://pokeapi.co/api/v2/pokemon?offset=' + (page * 10 - 10) + '&limit=10';
 
     fetch(URL)
         .then(response => {
@@ -18,12 +19,10 @@ exports.getPR09 = (req, res, next) => {
             }
 
             response.json().then(data => {
-                console.log(data.results);
-                for (p in data.results) {
-                    pokemon.push(data.results[p]);
+                for (i = 0; i < 10; i++) {
+                    pokemon.push(data.results[i].name);
                 }
-            })
-            totalItems = pokemon.length
+            });
         });
 
     res.render('pages/provePages/pr09/index', {
@@ -37,4 +36,7 @@ exports.getPR09 = (req, res, next) => {
         previousPage: page - 1,
         lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE)
     });
+
+    //Reset the list
+    pokemon.length = 0;
 };

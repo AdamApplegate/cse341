@@ -3,7 +3,7 @@
 
 <head>
     <% include ../../../includes/header.ejs %>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/fonts/pokemon.css" />
+    <link rel="stylesheet" type="text/css" href="/public/fonts/pokemon/pokemon_font.css" />
 </head>
 
 <body>
@@ -14,38 +14,46 @@
         </div>
     </div>
 
-    <div>
-        <h1>Pokemon #<%= currentPage %>-<%= currentPage * 10 %></h1>
+    <div style="text-align: center; margin: auto;">
+        <h1>Pokemon #<%= currentPage * 10 - 9 %>-<%= currentPage * 10 %></h1>
         <section class="pagination">
-
-            <% for (p in pokemon) { %>
-                <div>
-                    <h2><%= pokemon[p].name %></h2>
-                </div>
+            <% if (pokemon.length > 0) { %>
+            <% for (i = 0; i < pokemon.length; i++) { %>
+            <div class="">
+                <h2>#<%= currentPage * 10 - 9 + i %>: <%= pokemon[i] %></h2>
+            </div>
             <% } %>
         </section>
 
+        <hr>
         <section class="pagination">
             <% if (currentPage != 1 && previousPage != 1) { %>
             <a href="/prove/pr09/?page=1">1</a>
             <% } %>
 
-            <% if (hasPreviousPage) { %>
-            <a href="/prove/pr09/?=<%= previousPage %>"><%= previousPage %></a>
+            <% if (currentPage != 1 && previousPage != 1 && previousPage != 2) { %>
+            <a href="">...</a>
             <% } %>
 
-            <a href="/prove/pr09/?=<%= currentPage %>" class="active"><%= currentPage %></a>
+            <% if (hasPreviousPage) { %>
+            <a href="/prove/pr09/?page=<%= previousPage %>"><%= previousPage %></a>
+            <% } %>
+
+            <a href="/prove/pr09/?page=<%= currentPage %>" class="active"><%= currentPage %></a>
 
             <% if (hasNextPage) { %>
-            <a href="/prove/pr09/?=<%= nextPage %>"><%= nextPage %></a>
+            <a href="/prove/pr09/?page=<%= nextPage %>"><%= nextPage %></a>
             <% } %>
 
-            <% if (currentPage != lastPage || hasNextPage != lastPage) { %>
+            <% if (currentPage != lastPage && nextPage != lastPage) { %>
             <a href="">...</a>
-            <a href="/prove/pr09/?=<%= lastPage %>"><%= lastPage %></a>
+            <a href="/prove/pr09/?page=<%= lastPage %>"><%= lastPage %></a>
             <% } %>
 
         </section>
+        <% } else { %>
+        <h2>No pokemon found. (Refresh the page to double check)</h2>
+        <% } %>
     </div>
 </body>
 
