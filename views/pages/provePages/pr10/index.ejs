@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../../includes/header.ejs %>
+</head>
+
+<body>
+    <% include ../../../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1>Prove 10</h1>
+            <form action="/prove/pr10/insert" method="POST">
+                Insert Item: <input type="text" name="insert" id="insert" style="color: black;">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="btn btn-primary">Add Item</button>
+              </form>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: auto;">
+     
+    </div>
+</body>
+
+</html>
+
+<script>
+    console.log('Entered Javascript');
+
+    // fetch('http://localhost:3000/prove/pr10/fetchall')
+    //     .then(res => res.json())
+    //     .then(resData => console.log(resData))
+    //     .catch(err => console.log(err));
+
+    const getButton = document.getElementById('insert');
+
+    getButton.addEventListener('click', () => {
+        fetch('http://localhost:3000/prove/pr10/fetchAll')
+        .then(res => res.json())
+        .then(resData => console.log(resData))
+        .catch(err => console.log(err));
+    });
+</script>

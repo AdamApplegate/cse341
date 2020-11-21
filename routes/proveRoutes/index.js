@@ -5,6 +5,7 @@ const pr02Routes = require('./pr02');
 const pr03Routes = require('./pr03');
 const pr08Routes = require('./pr08');
 const pr09Routes = require('./pr09');
+const pr10Routes = require('./pr10');
 
 proveRoutes
     .use('/pr01', pr01Routes) // Prove Activities
@@ -12,6 +13,7 @@ proveRoutes
     .use('/pr03', pr03Routes)
     .use('/pr08', pr08Routes)
     .use('/pr09', pr09Routes)
+    .use('/pr10', pr10Routes)
     .get('/', (req, res, next) => {
         res.render('pages/provePages', {
             pageTitle: 'Prove Assignments',
