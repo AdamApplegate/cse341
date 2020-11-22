@@ -11,18 +11,17 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/fetchAll', (req, res, next) => {
-    console.log('made it to fetchAll');
-    res.json(dummyData);
-});
+// router.get('/fetchAll', (req, res, next) => {
+//     res.json(dummyData);
+// });
 
-router.post('/insert', async (req, res, next) => {
+// router.post('/insert', async (req, res, next) => {
 //    .then( => {
 
 //    })
 //    .catch(err => {
 
-//    });
-});
+// //    });
+// });
 
 module.exports = router;
